@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flux Station - 素材生成</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6366F1",
+                        "background-light": "#F9F9FB",
+                        "background-dark": "#0F0F12",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#18181B",
+                        "text-main-light": "#111827",
+                        "text-main-dark": "#F3F4F6",
+                        "text-muted-light": "#6B7280",
+                        "text-muted-dark": "#9CA3AF",
+                        "accent-lavender": "#E9E5FF",
+                        "accent-mint": "#DDFBF3",
+                        "accent-sky": "#E0F2FE",
+                        "glass-border-light": "rgba(255, 255, 255, 0.6)",
+                        "glass-border-dark": "rgba(255, 255, 255, 0.1)",
+                    },
+                    fontFamily: {
+                        serif: ['"Instrument Serif"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                        'floating': '0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'glow-primary': '0 0 15px rgba(99, 102, 241, 0.5), 0 0 30px rgba(99, 102, 241, 0.3)',
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'shimmer-text': 'shimmer 3s linear infinite',
+                        'liquid-pulse': 'liquidPulse 2s infinite',
+                        'spin-slow': 'spin 3s linear infinite',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% center' },
+                            '100%': { backgroundPosition: '200% center' },
+                        },
+                        liquidPulse: {
+                            '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(99, 102, 241, 0.7)' },
+                            '70%': { transform: 'scale(1.02)', boxShadow: '0 0 0 10px rgba(99, 102, 241, 0)' },
+                            '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(99, 102, 241, 0)' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-serif {
+            font-family: 'Instrument Serif', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+            border-radius: 3px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #374151;
+        }
+        .gradient-card-1 {
+            background: linear-gradient(135deg, #E9E5FF 0%, #FAD0C4 100%);
+        }
+        .gradient-card-2 {
+            background: linear-gradient(135deg, #ABDCFF 0%, #FFD1FF 100%);
+        }
+        .gradient-card-3 {
+            background: linear-gradient(135deg, #DDFBF3 0%, #E9E5FF 100%);
+        }
+        .text-iris-gradient {
+            background: linear-gradient(to right, #6366F1, #A855F7, #EC4899, #6366F1);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366F1, #A855F7, #EC4899);
+            transition: width 0.3s ease;
+            opacity: 0.7;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #6366F1;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #6366F1;
+        }
+
+        /* Enforce 16:9 aspect ratio container logic if needed,
+           but since it's a full viewport app, h-screen w-screen acts as the canvas.
+           We can create an inner container that maintains 16:9 if explicitly required,
+           but typically "16:9 web page" means it's designed to look best on a 16:9 monitor (like 1920x1080).
+           I will wrap the main content in an aspect-video container to be strictly 16:9. */
+        .aspect-16-9-container {
+            aspect-ratio: 16 / 9;
+            max-height: 100vh;
+            max-width: 177.78vh; /* 16/9 * 100 */
+            margin: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 h-screen w-screen overflow-hidden flex items-center justify-center selection:bg-primary selection:text-white transition-colors duration-300">
+<!-- 16:9 Aspect Ratio Container -->
+<div class="aspect-16-9-container bg-background-light dark:bg-background-dark relative flex shadow-2xl overflow-hidden text-text-main-light dark:text-text-main-dark transition-colors duration-300">
+
+<aside class="w-64 flex-shrink-0 flex flex-col justify-between border-r border-gray-200 dark:border-gray-800 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md z-20 h-full relative">
+<div class="p-6">
+<div class="mb-8">
+<h1 class="font-serif text-4xl text-text-main-light dark:text-text-main-dark tracking-tight">Flux Station</h1>
+<p class="text-[10px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark font-medium mt-1">Creative Engine</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center px-3 py-2.5 text-sm font-medium rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-primary group transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">auto_awesome</span>
+                素材生成
+            </a>
+<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">movie</span>
+                视频生成
+            </a>
+<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">grid_view</span>
+                模型广场
+            </a>
+<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">api</span>
+                API管理
+            </a>
+<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">folder_special</span>
+                资产
+            </a>
+</nav>
+</div>
+<div class="p-4 border-t border-gray-100 dark:border-gray-800">
+<div class="flex items-center justify-between mb-4 px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-yellow-500 animate-spin-slow" style="animation-duration: 10s;">light_mode</span>
+<label class="relative inline-flex items-center cursor-pointer group">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary dark:peer-focus:ring-primary rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+<span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">dark_mode</span>
+</div>
+</div>
+<button class="flex items-center w-full px-3 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="h-8 w-8 rounded-full bg-pink-200 flex items-center justify-center text-pink-700 text-xs font-bold mr-3">
+                DY
+            </div>
+<div class="text-left flex-1">
+<p class="text-sm font-semibold text-text-main-light dark:text-text-main-dark">Dylan C.</p>
+<p class="text-[10px] text-text-muted-light dark:text-text-muted-dark uppercase tracking-wide">Pro Plan</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[16px]">expand_more</span>
+</button>
+</div>
+</aside>
+
+<main class="flex-1 relative flex flex-col h-full overflow-hidden bg-[#FFFCFC] dark:bg-[#09090b] transition-colors">
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-100/40 dark:bg-purple-900/10 rounded-full blur-[120px]"></div>
+</div>
+<div class="flex-1 z-10 flex flex-col items-center justify-center px-8 relative">
+<div class="text-center mb-12 max-w-2xl mx-auto">
+<h2 class="font-serif text-6xl md:text-7xl mb-4 text-text-main-light dark:text-text-main-dark">
+                Dream something <span class="text-iris-gradient italic animate-shimmer-text">vivid.</span>
+</h2>
+<p class="text-text-muted-light dark:text-text-muted-dark text-lg font-light">
+                Enter a prompt below to ignite the generative engine.
+            </p>
+</div>
+<div class="flex gap-6 mb-16 overflow-x-auto pb-4 max-w-full px-4 items-center justify-center no-scrollbar">
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<div class="absolute inset-0 gradient-card-1 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">Ethereal</span>
+</div>
+</button>
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<div class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">Metallic</span>
+</div>
+</button>
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<div class="absolute inset-0 gradient-card-3 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">Aurora</span>
+</div>
+</button>
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<img alt="Abstract colorful smoke" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity group-hover:scale-110 duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjDTJ_TDCOqlVAOFTjJ1PTZhF48F8a0oW0-A2yoWUCJEY5cHOr0ag8UuyP6l_ajopHOkRhplhxSoJ-oBv-scj5xTW57reVwjQZAhoBprTK_g-m0uO-9pzSSw3H0Wtw45PqhS8kSCxtMZsGjQo21wY8b2b1r1Qi8NmBmopBpI5Fm-Z6noTiHsjeaQFC3eVX-Y-5aGYxsPwGS0cipQrEjETV-3XRvHgJ8NjmVHkKtKmtvqkV7cisLA48vAh_hP4MxHrg93OPDw8e0uTj"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">Cinematic</span>
+</div>
+</button>
+</div>
+<div class="w-full max-w-3xl absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30">
+<div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-full p-2 shadow-floating flex items-center gap-2 transition-all hover:shadow-lg focus-within:ring-2 focus-within:ring-primary/20">
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-bold text-text-main-light dark:text-text-main-dark">
+<span class="material-symbols-outlined text-[18px] text-gray-500 dark:text-gray-400">tune</span>
+<span>FLUX 1.1</span>
+<span class="material-symbols-outlined text-[14px] text-gray-400">arrow_drop_down</span>
+</button>
+</div>
+<div class="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-1"></div>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-text-main-light dark:text-text-main-dark placeholder-gray-400 dark:placeholder-gray-500 text-base py-3" placeholder="Describe the texture... (e.g., 'Iridescent oil slick on obsidian')" type="text"/>
+<button class="bg-[#6366F1] hover:bg-[#5558e3] text-white font-medium rounded-full px-6 py-3 transition-colors flex items-center gap-2 group animate-liquid-pulse shadow-glow-primary">
+                    生成
+                    <span class="material-symbols-outlined text-[18px]">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+
+<aside class="w-80 flex-shrink-0 border-l border-gray-200 dark:border-gray-800 bg-surface-light/50 dark:bg-surface-dark/50 backdrop-blur-md z-20 flex flex-col h-full">
+<div class="p-6 pb-2 border-b border-gray-100 dark:border-gray-800">
+<h3 class="font-serif text-2xl text-text-main-light dark:text-text-main-dark mb-1">资产库</h3>
+<p class="text-[10px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark font-medium mb-4">Curated Collection</p>
+<div class="flex gap-2">
+<button class="flex-1 py-1.5 px-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm text-xs font-medium text-text-main-light dark:text-text-main-dark flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">folder_open</span>
+                我的文件
+            </button>
+<button class="flex-1 py-1.5 px-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-xs text-text-muted-light dark:text-text-muted-dark hover:text-text-main-light dark:hover:text-text-main-dark transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                历史记录
+            </button>
+<button class="flex-1 py-1.5 px-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-xs text-text-muted-light dark:text-text-muted-dark hover:text-text-main-light dark:hover:text-text-main-dark transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">favorite_border</span>
+                已保存
+            </button>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center p-8 text-center">
+<div class="w-24 h-24 rounded-full bg-gray-50 dark:bg-gray-800/50 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 text-4xl">auto_fix_high</span>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark font-light italic">等待您的创作...</p>
+</div>
+<div class="p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">存储空间</span>
+<span class="text-xs font-medium text-text-main-light dark:text-text-main-dark">已用 12%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</aside>
+
+</div> <!-- End 16:9 container -->
+</body></html>
