@@ -124,6 +124,138 @@
             background-color: #6366F1;
         }
 
+        /* Screen 3 Modal Styles */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 2px 4px -1px rgba(0, 0, 0, 0.03),
+                0 0 0 1px rgba(255,255,255,0.5),
+                0 20px 60px -10px rgba(99, 102, 241, 0.1);
+        }
+        .dark .glass-panel {
+            background: rgba(24, 24, 27, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.5);
+        }
+        .segmented-control {
+            background: #F3F4F6;
+            border-radius: 12px;
+            padding: 4px;
+            display: inline-flex;
+            width: 100%;
+        }
+        .segmented-option {
+            flex: 1;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: #6B7280;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .segmented-option.selected {
+            background: white;
+            color: #6366F1;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            font-weight: 600;
+        }
+        .master-switch .segmented-option.selected {
+            background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        .ratio-btn {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            font-size: 0.875rem;
+            color: #4B5563;
+            transition: all 0.2s;
+            background: rgba(255,255,255,0.5);
+        }
+        .ratio-btn:hover {
+            border-color: #6366F1;
+            color: #6366F1;
+            background: white;
+        }
+        .ratio-btn.selected {
+            background: #6366F1;
+            border-color: transparent;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        .aesthetic-card {
+            border-radius: 12px;
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1F2937;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            height: 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .aesthetic-card:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 8px 16px rgba(99, 102, 241, 0.1);
+        }
+        .dashed-upload {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%236366F1' stroke-width='2' stroke-dasharray='6%2c 6' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+            background-color: rgba(99, 102, 241, 0.03);
+        }
+        .bg-gradient-cinematic { background: linear-gradient(135deg, #FDE68A 0%, #FCA5A5 100%); }
+        .bg-gradient-ethereal { background: linear-gradient(135deg, #E9D5FF 0%, #DDD6FE 100%); }
+        .bg-gradient-fluid { background: linear-gradient(135deg, #A7F3D0 0%, #6EE7B7 100%); }
+        .bg-gradient-minimal { background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%); }
+        .bg-gradient-fantasy { background: linear-gradient(135deg, #C4B5FD 0%, #A78BFA 100%); color: white !important; }
+        .bg-gradient-cyber { background: linear-gradient(135deg, #F9A8D4 0%, #F472B6 100%); color: white !important; }
+        .bg-no-style { background: #F3F4F6; border: 1px solid #E5E7EB; color: #6B7280; }
+        .dark .bg-no-style { background: #18181B; border: 1px solid #27272A; color: #9CA3AF; }
+        .aesthetic-card.selected {
+            border: 2px solid #6366F1;
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+        }
+        .aesthetic-card.selected::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        #reference-section {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        #reference-section.active {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 2rem;
+        }
+
         /* Enforce 16:9 aspect ratio container logic if needed,
            but since it's a full viewport app, h-screen w-screen acts as the canvas.
            We can create an inner container that maintains 16:9 if explicitly required,
@@ -137,6 +269,20 @@
             width: 100%;
         }
     </style>
+<script>
+        function toggleMode(mode) {
+            const refSection = document.getElementById('reference-section');
+            const options = document.querySelectorAll('.master-switch .segmented-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            if (mode === 'img2img') {
+                refSection.classList.add('active');
+                options[1].classList.add('selected');
+            } else if (mode === 'txt2img') {
+                refSection.classList.remove('active');
+                options[0].classList.add('selected');
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-900 h-screen w-screen overflow-hidden flex items-center justify-center selection:bg-primary selection:text-white transition-colors duration-300">
 <!-- 16:9 Aspect Ratio Container -->
@@ -270,6 +416,106 @@
 <p class="text-sm text-text-muted-light dark:text-text-muted-dark font-light italic">等待您的创作...</p>
 </div>
 </aside>
+
+<!-- Configuration Modal Overlay -->
+<div class="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/5 backdrop-blur-[2px]">
+<div class="glass-panel w-full max-w-5xl rounded-[32px] flex flex-col shadow-deep relative overflow-hidden max-h-[90vh]">
+<div class="px-10 py-8 flex items-center justify-between shrink-0 relative z-20">
+<div>
+<h2 class="font-serif text-4xl text-iris-gradient tracking-tight" style="">Configuration</h2>
+<p class="text-xs text-gray-500 mt-1 font-medium tracking-wide uppercase" style="">Generation Settings</p>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group" style="">
+<span class="material-symbols-outlined text-3xl font-light text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors" style="">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-10 pb-10 custom-scrollbar">
+<div class="grid grid-cols-12 gap-12">
+<div class="col-span-12 lg:col-span-5 space-y-8">
+<div>
+<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">AI Model</label>
+<div class="relative">
+<button class="w-full text-left bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-2xl px-5 py-4 flex items-center justify-between hover:border-iris-start/50 transition-all shadow-sm" style="">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[#A855F7] flex items-center justify-center text-white shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-lg" style="">stars</span>
+</div>
+<div>
+<span class="text-gray-900 dark:text-white font-semibold block" style="">Gemini 3.1 Flash Image</span>
+<span class="text-[10px] text-gray-500 uppercase tracking-wide" style="">High Fidelity • Fast</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400" style="">expand_more</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">Platform / Provider</label>
+<div class="segmented-control p-1.5 bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
+<div class="segmented-option selected" style="">ZenMux</div>
+<div class="segmented-option" style="">Nebula</div>
+<div class="segmented-option" style="">Google</div>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">Generation Mode</label>
+<div class="segmented-control master-switch p-1.5 bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
+<div class="segmented-option selected" onclick="toggleMode('txt2img')" style="">Text → Img</div>
+<div class="segmented-option" onclick="toggleMode('img2img')" style="">Img → Img</div>
+</div>
+<p class="text-[10px] text-gray-400 mt-2 ml-2 italic" style="">Select mode to reveal specific options</p>
+</div>
+<div class="" id="reference-section">
+<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">Reference Imagery</label>
+<div class="dashed-upload w-full h-32 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-primary/5 transition-colors group">
+<div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-xl" style="">add_photo_alternate</span>
+</div>
+<p class="text-xs font-medium text-gray-600 dark:text-gray-300" style="">Upload Reference Image</p>
+<p class="text-[10px] text-gray-400 mt-1" style="">JPG, PNG, WEBP up to 5MB</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7 space-y-8 pl-0 lg:pl-4 border-l border-gray-100 dark:border-gray-800/50">
+<div>
+<div class="flex justify-between items-center mb-4">
+<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase ml-1" style="">Aspect Ratio</label>
+<div class="bg-indigo-50 dark:bg-indigo-900/30 rounded-full px-3 py-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-300 tracking-wide border border-indigo-100 dark:border-indigo-800" style="">2K 1664x2080</div>
+</div>
+<div class="grid grid-cols-5 gap-3">
+<button class="ratio-btn bg-white/50" style="">1:1</button>
+<button class="ratio-btn bg-white/50" style="">3:2</button>
+<button class="ratio-btn bg-white/50" style="">2:3</button>
+<button class="ratio-btn bg-white/50" style="">3:4</button>
+<button class="ratio-btn bg-white/50" style="">4:3</button>
+<button class="ratio-btn selected" style="">4:5</button>
+<button class="ratio-btn bg-white/50" style="">5:4</button>
+<button class="ratio-btn bg-white/50" style="">9:16</button>
+<button class="ratio-btn bg-white/50" style="">16:9</button>
+<button class="ratio-btn bg-white/50" style="">21:9</button>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-4 ml-1" style="">Aesthetic Blueprint</label>
+<div class="grid grid-cols-3 gap-3">
+<div class="aesthetic-card bg-gradient-cinematic cursor-pointer" style="">Cinematic</div>
+<div class="aesthetic-card bg-gradient-ethereal cursor-pointer" style="">Ethereal</div>
+<div class="aesthetic-card bg-gradient-fluid cursor-pointer" style="">Fluid 3D</div>
+<div class="aesthetic-card bg-gradient-minimal cursor-pointer" style="">Minimal</div>
+<div class="aesthetic-card bg-gradient-fantasy cursor-pointer" style="">Fantasy</div>
+<div class="aesthetic-card bg-gradient-cyber cursor-pointer" style="">Cyberpunk</div>
+<div class="aesthetic-card bg-no-style cursor-pointer selected">
+<span class="material-symbols-outlined text-[20px] mb-1 opacity-60" style="">block</span>
+<span class="" style="">No Style</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="h-1.5 w-full bg-gradient-to-r from-primary to-[#A855F7] absolute bottom-0 left-0"></div>
+</div>
+</div>
 
 </div> <!-- End 16:9 container -->
 </body></html>
