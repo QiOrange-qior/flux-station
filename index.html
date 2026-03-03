@@ -196,17 +196,17 @@
         }
         .aesthetic-card {
             border-radius: 12px;
-            padding: 0.75rem;
+            padding: 0.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #1F2937;
             border: 1px solid transparent;
             transition: all 0.2s;
-            height: 80px;
+            height: 64px;
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -354,25 +354,25 @@
             </p>
 </div>
 <div class="flex gap-6 mb-16 overflow-x-auto pb-4 max-w-full px-4 items-center justify-center no-scrollbar">
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
 <div class="absolute inset-0 gradient-card-1 opacity-80 group-hover:opacity-100 transition-opacity"></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 <span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">空灵</span>
 </div>
 </button>
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
 <div class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 opacity-80 group-hover:opacity-100 transition-opacity"></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 <span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">金属</span>
 </div>
 </button>
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
 <div class="absolute inset-0 gradient-card-3 opacity-80 group-hover:opacity-100 transition-opacity"></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 <span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">极光</span>
 </div>
 </button>
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
 <img alt="Abstract colorful smoke" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity group-hover:scale-110 duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjDTJ_TDCOqlVAOFTjJ1PTZhF48F8a0oW0-A2yoWUCJEY5cHOr0ag8UuyP6l_ajopHOkRhplhxSoJ-oBv-scj5xTW57reVwjQZAhoBprTK_g-m0uO-9pzSSw3H0Wtw45PqhS8kSCxtMZsGjQo21wY8b2b1r1Qi8NmBmopBpI5Fm-Z6noTiHsjeaQFC3eVX-Y-5aGYxsPwGS0cipQrEjETV-3XRvHgJ8NjmVHkKtKmtvqkV7cisLA48vAh_hP4MxHrg93OPDw8e0uTj"/>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 <span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">电影级</span>
@@ -428,19 +428,19 @@
 
 <!-- Configuration Modal Overlay -->
 <div id="config-modal" class="hidden absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/5 backdrop-blur-[2px]">
-<div class="glass-panel w-full max-w-5xl rounded-[32px] flex flex-col shadow-deep relative overflow-hidden max-h-[90vh]">
-<div class="px-10 py-8 flex items-center justify-between shrink-0 relative z-20">
+<div class="glass-panel w-full max-w-4xl rounded-[24px] flex flex-col shadow-deep relative overflow-hidden max-h-[90vh]">
+<div class="px-8 py-6 flex items-center justify-between shrink-0 relative z-20">
 <div>
-<h2 class="font-serif text-4xl text-iris-gradient tracking-tight" style="">Configuration</h2>
+<h2 class="font-serif text-3xl text-iris-gradient tracking-tight" style="">Configuration</h2>
 <p class="text-xs text-gray-500 mt-1 font-medium tracking-wide uppercase" style="">生成设置</p>
 </div>
-<button id="close-config-btn" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group" style="">
-<span class="material-symbols-outlined text-3xl font-light text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors" style="">close</span>
+<button id="close-config-btn" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group" style="">
+<span class="material-symbols-outlined text-2xl font-light text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors" style="">close</span>
 </button>
 </div>
-<div class="flex-1 overflow-y-auto px-10 pb-10 custom-scrollbar">
-<div class="grid grid-cols-12 gap-12">
-<div class="col-span-12 lg:col-span-5 space-y-8">
+<div class="flex-1 overflow-y-auto px-8 pb-8 custom-scrollbar">
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-5 space-y-6">
 <div>
 <label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">AI模型</label>
 <div class="relative">
@@ -485,7 +485,7 @@
 </div>
 </div>
 </div>
-<div class="col-span-12 lg:col-span-7 space-y-8 pl-0 lg:pl-4 border-l border-gray-100 dark:border-gray-800/50">
+<div class="col-span-12 lg:col-span-7 space-y-6 pl-0 lg:pl-4 border-l border-gray-100 dark:border-gray-800/50">
 <div>
 <div class="flex justify-between items-center mb-4">
 <label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase ml-1" style="">图片比例</label>
