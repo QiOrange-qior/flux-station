@@ -259,13 +259,6 @@
            We can create an inner container that maintains 16:9 if explicitly required,
            but typically "16:9 web page" means it's designed to look best on a 16:9 monitor (like 1920x1080).
            I will wrap the main content in an aspect-video container to be strictly 16:9. */
-        .aspect-16-9-container {
-            aspect-ratio: 16 / 9;
-            max-height: 100vh;
-            max-width: 177.78vh; /* 16/9 * 100 */
-            margin: auto;
-            width: 100%;
-        }
     </style>
 <script>
         function toggleMode(mode) {
@@ -282,9 +275,7 @@
         }
     </script>
 </head>
-<body class="bg-gray-900 h-screen w-screen overflow-hidden flex items-center justify-center selection:bg-primary selection:text-white transition-colors duration-300">
-<!-- 16:9 Aspect Ratio Container -->
-<div class="aspect-16-9-container bg-background-light dark:bg-background-dark relative flex shadow-2xl overflow-hidden text-text-main-light dark:text-text-main-dark transition-colors duration-300">
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark h-screen w-screen overflow-hidden flex selection:bg-primary selection:text-white transition-colors duration-300">
 
 <aside class="w-64 flex-shrink-0 flex flex-col justify-between border-r border-gray-200 dark:border-gray-800 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md z-20 h-full relative">
 <div class="p-6">
@@ -426,7 +417,7 @@
 
 <!-- Configuration Modal Overlay -->
 <div id="config-modal" class="hidden absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/5 backdrop-blur-[2px]">
-<div class="glass-panel w-full max-w-4xl rounded-[24px] flex flex-col shadow-deep relative overflow-hidden max-h-[90vh]">
+<div class="glass-panel w-full max-w-3xl rounded-[24px] flex flex-col shadow-deep relative overflow-hidden max-h-[90vh] mx-auto -translate-x-8">
 <div class="px-8 py-6 flex items-center justify-between shrink-0 relative z-20">
 <div>
 <h2 class="font-serif text-3xl text-iris-gradient tracking-tight" style="">Configuration</h2>
@@ -489,11 +480,15 @@
 </div>
 </div>
 </div>
-<div class="col-span-12 lg:col-span-7 space-y-6 pl-0 lg:pl-4 border-l border-gray-100 dark:border-gray-800/50">
+<div class="col-span-12 lg:col-span-7 space-y-6 pl-0 lg:pl-4 border-l border-gray-100 dark:border-gray-800/50 flex flex-col h-full">
+<div class="flex justify-between items-center bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl p-1.5 border border-gray-200/50 dark:border-gray-700/50 w-full mb-2" id="resolution-selector">
+<button class="res-btn selected flex-1 py-1.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary to-[#A855F7] shadow-sm">2K</button>
+<button class="res-btn flex-1 py-1.5 rounded-xl text-sm font-medium text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">4K</button>
+</div>
 <div>
-<div class="flex justify-between items-center mb-4">
+<div class="flex justify-between items-center mb-4 mt-2">
 <label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase ml-1" style="">图片比例</label>
-<div class="bg-indigo-50 dark:bg-indigo-900/30 rounded-full px-3 py-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-300 tracking-wide border border-indigo-100 dark:border-indigo-800" style="">2K 1664x2080</div>
+<div class="bg-indigo-50 dark:bg-indigo-900/30 rounded-full px-3 py-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-300 tracking-wide border border-indigo-100 dark:border-indigo-800" style="">1664x2080</div>
 </div>
 <div class="grid grid-cols-5 gap-3">
 <button class="ratio-btn bg-white/50" style="">1:1</button>
@@ -530,7 +525,6 @@
 </div>
 </div>
 
-</div> <!-- End 16:9 container -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('config-modal');
@@ -655,6 +649,25 @@
         // Initialize if DOM is ready
         if (platformSelector && modelList) {
             populateModels(activePlatform);
+        }
+
+        // Resolution Toggle Logic
+        const resSelector = document.getElementById('resolution-selector');
+        if (resSelector) {
+            const resBtns = resSelector.querySelectorAll('.res-btn');
+            resBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Reset all
+                    resBtns.forEach(b => {
+                        b.classList.remove('text-white', 'bg-gradient-to-r', 'from-primary', 'to-[#A855F7]', 'shadow-sm', 'font-semibold', 'selected');
+                        b.classList.add('text-gray-500', 'hover:text-gray-700', 'dark:hover:text-gray-300', 'font-medium');
+                    });
+
+                    // Activate clicked
+                    e.target.classList.remove('text-gray-500', 'hover:text-gray-700', 'dark:hover:text-gray-300', 'font-medium');
+                    e.target.classList.add('text-white', 'bg-gradient-to-r', 'from-primary', 'to-[#A855F7]', 'shadow-sm', 'font-semibold', 'selected');
+                });
+            });
         }
     });
 </script>
