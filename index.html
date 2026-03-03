@@ -439,29 +439,35 @@
 <div class="flex-1 overflow-y-auto px-8 pb-8 custom-scrollbar">
 <div class="grid grid-cols-12 gap-8">
 <div class="col-span-12 lg:col-span-5 space-y-6">
-<div>
+<div class="relative">
 <label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">AI模型</label>
 <div class="relative">
-<button class="w-full text-left bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-2xl px-5 py-4 flex items-center justify-between hover:border-iris-start/50 transition-all shadow-sm" style="">
+<button id="model-select-btn" class="w-full text-left bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-2xl px-5 py-4 flex items-center justify-between hover:border-primary/50 transition-all shadow-sm" style="">
 <div class="flex items-center gap-3">
 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[#A855F7] flex items-center justify-center text-white shadow-md shadow-primary/20">
 <span class="material-symbols-outlined text-lg" style="">stars</span>
 </div>
-<div>
-<span class="text-gray-900 dark:text-white font-semibold block" style="">Gemini 3.1 Flash Image</span>
-<span class="text-[10px] text-gray-500 uppercase tracking-wide" style="">HIGH FIDELITY • FAST</span>
+<div class="flex-1 min-w-0">
+<span id="selected-model-name" class="text-gray-900 dark:text-white font-semibold block truncate" style="">google/gemini-3.1-flash-image-preview</span>
+<span id="selected-model-desc" class="text-[10px] text-gray-500 uppercase tracking-wide truncate" style="">ZENMUX</span>
 </div>
 </div>
 <span class="material-symbols-outlined text-gray-400" style="">expand_more</span>
 </button>
+
+<div id="model-dropdown" class="hidden absolute top-full left-0 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg z-50 overflow-hidden">
+<ul id="model-list" class="max-h-60 overflow-y-auto p-2 space-y-1 custom-scrollbar">
+<!-- List items injected via JS -->
+</ul>
+</div>
 </div>
 </div>
 <div>
 <label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">平台/提供商</label>
-<div class="segmented-control p-1.5 bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
-<div class="segmented-option selected" style="">ZenMux</div>
-<div class="segmented-option" style="">Nebula</div>
-<div class="segmented-option" style="">Google</div>
+<div class="segmented-control p-1.5 bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl border border-gray-200/50 dark:border-gray-700/50" id="platform-selector">
+<div class="segmented-option" data-platform="nebula">Nebula</div>
+<div class="segmented-option selected" data-platform="zenmux">ZenMux</div>
+<div class="segmented-option" data-platform="huoshan">火山</div>
 </div>
 </div>
 <div>
@@ -541,6 +547,114 @@
             closeBtn.addEventListener('click', () => {
                 modal.classList.add('hidden');
             });
+        }
+
+        // Platform & Model logic
+        const platformModels = {
+            'nebula': [
+                'gemini-3-pro-image-preview',
+                'gemini-3.1-flash-image-preview',
+                'doubao-seedream-4-5-251128',
+                'doubao-seedream-4-0-250828'
+            ],
+            'zenmux': [
+                'google/gemini-3.1-flash-image-preview',
+                'google/gemini-3-pro-image-preview'
+            ],
+            'huoshan': [
+                'doubao-seedream-5-0-260128',
+                'doubao-seedream-4-5-251128',
+                'doubao-seedream-4-0-250828'
+            ]
+        };
+
+        const platformSelector = document.getElementById('platform-selector');
+        const platformOptions = platformSelector.querySelectorAll('.segmented-option');
+        const modelList = document.getElementById('model-list');
+        const modelSelectBtn = document.getElementById('model-select-btn');
+        const modelDropdown = document.getElementById('model-dropdown');
+        const selectedModelName = document.getElementById('selected-model-name');
+        const selectedModelDesc = document.getElementById('selected-model-desc');
+
+        // Initial setup
+        let activePlatform = 'zenmux';
+        let currentModel = platformModels['zenmux'][0];
+
+        function getPlatformDisplayName(key) {
+            switch(key) {
+                case 'nebula': return 'NEBULA';
+                case 'zenmux': return 'ZENMUX';
+                case 'huoshan': return '火山';
+                default: return key.toUpperCase();
+            }
+        }
+
+        function populateModels(platform) {
+            modelList.innerHTML = '';
+            const models = platformModels[platform] || [];
+
+            models.forEach(modelId => {
+                const li = document.createElement('li');
+                li.className = `px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors ${currentModel === modelId ? 'bg-primary/10 dark:bg-primary/20 text-primary' : 'text-gray-700 dark:text-gray-300'}`;
+                li.innerHTML = `
+                    <div class="font-medium truncate text-sm">${modelId}</div>
+                    <div class="text-[10px] text-gray-500 uppercase mt-0.5">${getPlatformDisplayName(platform)}</div>
+                `;
+
+                li.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    selectModel(modelId, platform);
+                    modelDropdown.classList.add('hidden');
+                });
+
+                modelList.appendChild(li);
+            });
+        }
+
+        function selectModel(modelId, platform) {
+            currentModel = modelId;
+            selectedModelName.textContent = modelId;
+            selectedModelDesc.textContent = getPlatformDisplayName(platform);
+
+            // Re-render list to update highlighted item
+            populateModels(platform);
+        }
+
+        platformOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                // Update platform selector styling
+                platformOptions.forEach(o => o.classList.remove('selected'));
+                e.target.classList.add('selected');
+
+                activePlatform = e.target.getAttribute('data-platform');
+
+                // Select the first model of the new platform by default
+                if(platformModels[activePlatform] && platformModels[activePlatform].length > 0) {
+                     selectModel(platformModels[activePlatform][0], activePlatform);
+                } else {
+                     selectModel('Unknown Model', activePlatform);
+                }
+            });
+        });
+
+        // Toggle Dropdown
+        if (modelSelectBtn && modelDropdown) {
+            modelSelectBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modelDropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!modelSelectBtn.contains(e.target) && !modelDropdown.contains(e.target)) {
+                    modelDropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize if DOM is ready
+        if (platformSelector && modelList) {
+            populateModels(activePlatform);
         }
     });
 </script>
