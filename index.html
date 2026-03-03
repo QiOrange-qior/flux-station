@@ -442,9 +442,9 @@
 <div class="relative">
 <label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">AI模型</label>
 <div class="relative">
-<button id="model-select-btn" class="w-full text-left bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-2xl px-5 py-4 flex items-center justify-between hover:border-primary/50 transition-all shadow-sm" style="">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[#A855F7] flex items-center justify-center text-white shadow-md shadow-primary/20">
+<button id="model-select-btn" class="w-full text-left bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-2xl px-5 py-4 flex items-center justify-between hover:border-primary/50 transition-all shadow-sm overflow-hidden" style="">
+<div class="flex items-center gap-3 min-w-0 flex-1">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[#A855F7] flex items-center justify-center text-white shadow-md shadow-primary/20 shrink-0">
 <span class="material-symbols-outlined text-lg" style="">stars</span>
 </div>
 <div class="flex-1 min-w-0">
@@ -452,7 +452,7 @@
 <span id="selected-model-desc" class="text-[10px] text-gray-500 uppercase tracking-wide truncate" style="">ZENMUX</span>
 </div>
 </div>
-<span class="material-symbols-outlined text-gray-400" style="">expand_more</span>
+<span class="material-symbols-outlined text-gray-400 shrink-0 ml-2" style="">expand_more</span>
 </button>
 
 <div id="model-dropdown" class="hidden absolute top-full left-0 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg z-50 overflow-hidden">
