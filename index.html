@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -259,7 +260,32 @@
            We can create an inner container that maintains 16:9 if explicitly required,
            but typically "16:9 web page" means it's designed to look best on a 16:9 monitor (like 1920x1080).
            I will wrap the main content in an aspect-video container to be strictly 16:9. */
-    </style>
+
+        .masonry-grid-models {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+        @media (max-width: 1280px) {
+            .masonry-grid-models { column-count: 3; }
+        }
+        @media (max-width: 1024px) {
+            .masonry-grid-models { column-count: 2; }
+        }
+        @media (max-width: 640px) {
+            .masonry-grid-models { column-count: 1; }
+        }
+        .masonry-item-models {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        @keyframes floatIn {
+            0% { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .animate-\[floatIn_0\.6s_ease-out_forwards\] {
+            animation: floatIn 0.6s ease-out forwards;
+        }
+</style>
 <script>
         function toggleMode(mode) {
             const refSection = document.getElementById('reference-section');
@@ -276,7 +302,6 @@
     </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark h-screen w-screen overflow-hidden flex selection:bg-primary selection:text-white transition-colors duration-300">
-
 <aside class="w-64 flex-shrink-0 flex flex-col justify-between border-r border-gray-200 dark:border-gray-800 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md z-20 h-full relative">
 <div class="p-6">
 <div class="mb-8">
@@ -284,7 +309,7 @@
 <p class="text-[10px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark font-medium mt-1">Creative Engine</p>
 </div>
 <nav class="space-y-1">
-<a class="flex items-center px-3 py-2.5 text-sm font-medium rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-primary group transition-all" href="#">
+<a class="flex items-center px-3 py-2.5 text-sm font-medium rounded-xl border transition-all nav-link text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark relative overflow-hidden" href="#">
 <span class="material-symbols-outlined mr-3 text-[20px]">auto_awesome</span>
                 素材生成
             </a>
@@ -292,7 +317,7 @@
 <span class="material-symbols-outlined mr-3 text-[20px]">movie</span>
                 视频生成
             </a>
-<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<a class="flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-primary group" href="#">
 <span class="material-symbols-outlined mr-3 text-[20px]">grid_view</span>
                 模型广场
             </a>
@@ -328,67 +353,8 @@
 </div>
 </div>
 </aside>
-
-<main class="flex-1 relative flex flex-col h-full overflow-hidden bg-[#FFFCFC] dark:bg-[#09090b] transition-colors">
-<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-100/40 dark:bg-purple-900/10 rounded-full blur-[120px]"></div>
-</div>
-<div class="flex-1 z-10 flex flex-col items-center justify-center px-8 relative">
-<div class="text-center mb-12 max-w-2xl mx-auto">
-<h2 class="font-serif text-6xl md:text-7xl mb-4 text-text-main-light dark:text-text-main-dark">
-                Dream something <span class="text-iris-gradient italic animate-shimmer-text">vivid.</span>
-</h2>
-<p class="text-text-muted-light dark:text-text-muted-dark text-lg font-light">
-                在下方输入提示词以启动生成引擎。
-            </p>
-</div>
-<div class="flex gap-6 mb-16 overflow-x-auto pb-4 max-w-full px-4 items-center justify-center no-scrollbar">
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
-<div class="absolute inset-0 gradient-card-1 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">空灵</span>
-</div>
-</button>
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
-<div class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">金属</span>
-</div>
-</button>
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
-<div class="absolute inset-0 gradient-card-3 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">极光</span>
-</div>
-</button>
-<button class="group relative w-48 h-56 rounded-3xl overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-2 focus:outline-none">
-<img alt="Abstract colorful smoke" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity group-hover:scale-110 duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjDTJ_TDCOqlVAOFTjJ1PTZhF48F8a0oW0-A2yoWUCJEY5cHOr0ag8UuyP6l_ajopHOkRhplhxSoJ-oBv-scj5xTW57reVwjQZAhoBprTK_g-m0uO-9pzSSw3H0Wtw45PqhS8kSCxtMZsGjQo21wY8b2b1r1Qi8NmBmopBpI5Fm-Z6noTiHsjeaQFC3eVX-Y-5aGYxsPwGS0cipQrEjETV-3XRvHgJ8NjmVHkKtKmtvqkV7cisLA48vAh_hP4MxHrg93OPDw8e0uTj"/>
-<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-<span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-full text-text-main-light dark:text-text-main-dark">电影级</span>
-</div>
-</button>
-</div>
-<div class="w-full max-w-3xl absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30">
-<div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-full p-2 shadow-floating flex items-center gap-2 transition-all hover:shadow-lg focus-within:ring-2 focus-within:ring-primary/20">
-<div class="relative group">
-<button id="open-config-btn" class="flex items-center gap-1.5 px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-bold text-text-main-light dark:text-text-main-dark">
-<span class="material-symbols-outlined text-[18px] text-gray-500 dark:text-gray-400">tune</span>
-<span>FLUX 1.1</span>
-<span class="material-symbols-outlined text-[14px] text-gray-400">arrow_drop_down</span>
-</button>
-</div>
-<div class="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-1"></div>
-<input class="flex-1 bg-transparent border-none focus:ring-0 text-text-main-light dark:text-text-main-dark placeholder-gray-400 dark:placeholder-gray-500 text-base py-3" placeholder="描述材质...（例如：“黑曜石上闪烁的油污”）" type="text"/>
-<button class="bg-[#6366F1] hover:bg-[#5558e3] text-white font-medium rounded-full px-6 py-3 transition-colors flex items-center gap-2 group animate-liquid-pulse shadow-glow-primary">
-                    生成
-                    <span class="material-symbols-outlined text-[18px]">bolt</span>
-</button>
-</div>
-</div>
-</div>
-</main>
-
-<aside class="w-80 flex-shrink-0 border-l border-gray-200 dark:border-gray-800 bg-surface-light/50 dark:bg-surface-dark/50 backdrop-blur-md z-20 flex flex-col h-full">
+<main class="flex-1 relative flex flex-col h-full overflow-hidden bg-[#FFFCFC] dark:bg-[#09090b] transition-colors"><div class="absolute inset-0 z-0 pointer-events-none overflow-hidden"><div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-100/40 dark:bg-purple-900/10 rounded-full blur-[120px]"></div></div><div class="flex-1 z-10 flex flex-col h-full w-full relative overflow-y-auto overflow-x-hidden custom-scrollbar"><div class="sticky top-0 z-30 pt-10 pb-6 px-10 bg-[#FFFCFC]/80 dark:bg-[#09090b]/80 backdrop-blur-xl border-b border-gray-100/50 dark:border-gray-800/50 flex flex-col gap-6"><div class="flex items-end justify-between"><h2 class="font-serif text-5xl text-text-main-light dark:text-text-main-dark tracking-tight">Discover <span class="text-iris-gradient italic">Models</span>.</h2><button class="bg-[#6366F1] hover:bg-[#5558e3] text-white text-sm font-medium rounded-xl px-5 py-2.5 transition-colors shadow-glow-primary flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">upload</span>上传模型</button></div><div class="flex items-center gap-4"><div class="flex-1 relative group"><span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">search</span><input class="w-full bg-white dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-2xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all shadow-sm" placeholder="搜索模型、风格、创作者..." type="text"/></div><div class="flex items-center gap-2 overflow-x-auto no-scrollbar"><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-primary text-white border-primary shadow-glow-primary filter-btn" data-filter="全部">全部 (All)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="微调">微调 (LoRA)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="风格">风格 (Style)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="角色">角色 (Character)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="场景">场景 (Environment)</button></div></div></div><div class="p-10"><div class="masonry-grid-models" id="models-grid"><div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.0s;"><div class="relative w-full aspect-[3/4] overflow-hidden"><img alt="Ethereal Portraits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv4xkKxRrWob2cDxas59tYImxsvr706WnvVWMQM1ql1KywOpcN3iNpuhCRVhJQGwkzTyvZ9CcZQPgJZubgR76DaGpulfqV8FiNRYWzGFagWzxP7WguN2LSz0rRpvDPo1HXN_fArch8exoTT-K2Fmnapai9UFgM8-Bd8lQcfrydWh-QwtjDgKb9KWo5PngnXjSJ_HglLoyZnUj_QthOsd6UHTr-s6c4j2QsYeHJpdcLEVwUlqr8U_HXpT19bBStNELTycGirWOHH6JI"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">LoRA</span></div><div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300"><button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button></div></div><div class="p-4"><div class="flex justify-between items-start mb-1"><h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Ethereal Portraits</h3></div><p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@AuraGen</p><div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700"><div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>12.4K</div><button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button></div></div></div><div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.1s;"><div class="relative w-full aspect-video overflow-hidden"><img alt="Cinematic Obsidian" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMbFP54OkePxxiyR89odXu1KverWJTEfXFuGy1OduAQns-Nf1CfCul2f4SuSDIKbsqq4HXMFd3pFpShn1F6u-nmf14ClWZlhNpAtnYsG3hmMKQln0mxulIxeF8DXsy53Vh9eXJc-zD9kuHK5vdG3kXcYA4QJ1RoT3HGSTTaPjWc9UnK3souRNjxHQIMaFpH8wLD1RAbBNktv5i7mCfePS1FgBppiR7RmfGZB3HlHunRehix9hfgpSqmdI3Xw0EHPW3HxQ0xbrj7PU7"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">Style</span></div><div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300"><button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button></div></div><div class="p-4"><div class="flex justify-between items-start mb-1"><h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Cinematic Obsidian</h3></div><p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@PixelWizard</p><div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700"><div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>8.2K</div><button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button></div></div></div><div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.2s;"><div class="relative w-full aspect-square overflow-hidden"><img alt="Fluid 3D Forms" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjDTJ_TDCOqlVAOFTjJ1PTZhF48F8a0oW0-A2yoWUCJEY5cHOr0ag8UuyP6l_ajopHOkRhplhxSoJ-oBv-scj5xTW57reVwjQZAhoBprTK_g-m0uO-9pzSSw3H0Wtw45PqhS8kSCxtMZsGjQo21wY8b2b1r1Qi8NmBmopBpI5Fm-Z6noTiHsjeaQFC3eVX-Y-5aGYxsPwGS0cipQrEjETV-3XRvHgJ8NjmVHkKtKmtvqkV7cisLA48vAh_hP4MxHrg93OPDw8e0uTj"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">Checkpoint</span></div><div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300"><button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button></div></div><div class="p-4"><div class="flex justify-between items-start mb-1"><h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Fluid 3D Forms</h3></div><p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@StudioFlux</p><div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700"><div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>45K</div><button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button></div></div></div><div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.30000000000000004s;"><div class="relative w-full aspect-square overflow-hidden"><img alt="Iridescent Oil Slick" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBwlXCdeDU2DlLOBQdLdj5MjQMMR9R1yYJBGv05_VL3_UYGDJbtpPKvbCLp-ALK7e-KQKF4gdzJyDSjlNylsL5vigFFu_IDIkkNulDROGaRJsYJwlKw-stLhfp3YaVLxIhwJiLo1gTkB10W1wWvvz_oUlHVphq1B0XX1QnGzUq2OCUTF6Fn2peILXG3gUR6SCfYhqGd7bUdZcG9R-NpG3WAc-29gJ-BAS5PdRIB2TaNrRuhGx7jj0t9LlXXlrVVOwbUvV3NDe-b8E3"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">Texture</span></div><div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300"><button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button></div></div><div class="p-4"><div class="flex justify-between items-start mb-1"><h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Iridescent Oil Slick</h3></div><p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@NeonDreams</p><div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700"><div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>5.1K</div><button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button></div></div></div><div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.4s;"><div class="relative w-full aspect-square overflow-hidden"><img alt="Cyberpunk Alley" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDacAJ-yhHGgISLQJxTkny7rtBqoJtNIPHYkP4Kg1or6xl4E6I3q2mfpOE3y58emF5xdVEM5fjR5u3-F4PZB-7zxifGjarFF7h2eTIZx45sguRV_07VV8LNxT5BsFJms4BUXbXaGUeGETmFSmQZeztGhgGacuyyP2V_L3Rh5thBRH7pYqy_cA_JBjdHoJbxyBMyCQm2_xAhnZaDA9PQQJ0MlRkMOYYQZoX5rk4kg1vZcbUXrJCGmG7QDCwCiwXC7Dgj7doDQ-W-KCOA"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">Environment</span></div><div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300"><button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button></div></div><div class="p-4"><div class="flex justify-between items-start mb-1"><h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Cyberpunk Alley</h3></div><p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@NightCity</p><div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700"><div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>21K</div><button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button></div></div></div><div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.5s;"><div class="relative w-full aspect-[2/3] overflow-hidden"><img alt="Futuristic Fashion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4diuvTX4OOq3A6E7kZXBMbbVv8NfCUV66Bl4B2BZJGJ4zhzwbxdEYTlJyz83mwWieXmhQY3Tgw0V_t_yInYdve5w-Uf8QqFXq-2eiKxAIJKPCynLK493Z33o6gIYLlBn8h05Fc3RAX7yjgpOyjDnYO4zJOcFbcOLemKrg3u95nu2AbUIrYu5QCZOdO66Bjx1wpXHWxWzD436_J5gSmNakUIrOrlpiq6gWAzGKoPhCW2VHyHKoNuDjZhfM3sbqUVPNyrN-yudEdztN"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">Character</span></div><div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300"><button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button></div></div><div class="p-4"><div class="flex justify-between items-start mb-1"><h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Futuristic Fashion</h3></div><p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@VogueAI</p><div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700"><div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>9.8K</div><button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button></div></div></div></div></div></div></main>
+<aside class="w-80 flex-shrink-0 border-l border-gray-200 dark:border-gray-800 bg-surface-light/50 dark:bg-surface-dark/50 backdrop-blur-md z-20 flex flex-col h-full hidden">
 <div class="p-6 pb-2 border-b border-gray-100 dark:border-gray-800">
 <h3 class="font-serif text-2xl text-text-main-light dark:text-text-main-dark mb-1">资产库</h3>
 <p class="text-[10px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark font-medium mb-4">精选收藏</p>
@@ -414,117 +380,7 @@
 <p class="text-sm text-text-muted-light dark:text-text-muted-dark font-light italic">等待您的创作...</p>
 </div>
 </aside>
-
 <!-- Configuration Modal Overlay -->
-<div id="config-modal" class="hidden absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/5 backdrop-blur-[2px]">
-<div class="glass-panel w-full max-w-3xl rounded-[24px] flex flex-col shadow-deep relative overflow-hidden max-h-[90vh] mx-auto -translate-x-8">
-<div class="px-8 py-6 flex items-center justify-between shrink-0 relative z-20">
-<div>
-<h2 class="font-serif text-3xl text-iris-gradient tracking-tight" style="">Configuration</h2>
-<p class="text-xs text-gray-500 mt-1 font-medium tracking-wide uppercase" style="">生成设置</p>
-</div>
-<button id="close-config-btn" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group" style="">
-<span class="material-symbols-outlined text-2xl font-light text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors" style="">close</span>
-</button>
-</div>
-<div class="flex-1 overflow-y-auto px-8 pb-8 custom-scrollbar">
-<div class="grid grid-cols-12 gap-8">
-<div class="col-span-12 lg:col-span-5 space-y-6">
-<div class="relative">
-<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">AI模型</label>
-<div class="relative">
-<button id="model-select-btn" class="w-full text-left bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-2xl px-5 py-4 flex items-center justify-between hover:border-primary/50 transition-all shadow-sm overflow-hidden" style="">
-<div class="flex items-center gap-3 min-w-0 flex-1">
-<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[#A855F7] flex items-center justify-center text-white shadow-md shadow-primary/20 shrink-0">
-<span class="material-symbols-outlined text-lg" style="">stars</span>
-</div>
-<div class="flex-1 min-w-0">
-<span id="selected-model-name" class="text-gray-900 dark:text-white font-semibold block truncate" style="">google/gemini-3.1-flash-image-preview</span>
-<span id="selected-model-desc" class="text-[10px] text-gray-500 uppercase tracking-wide truncate" style="">ZENMUX</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-gray-400 shrink-0 ml-2" style="">expand_more</span>
-</button>
-
-<div id="model-dropdown" class="hidden absolute top-full left-0 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg z-50 overflow-hidden">
-<ul id="model-list" class="max-h-60 overflow-y-auto p-2 space-y-1 custom-scrollbar">
-<!-- List items injected via JS -->
-</ul>
-</div>
-</div>
-</div>
-<div>
-<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">平台/提供商</label>
-<div class="segmented-control p-1.5 bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl border border-gray-200/50 dark:border-gray-700/50" id="platform-selector">
-<div class="segmented-option" data-platform="nebula">Nebula</div>
-<div class="segmented-option selected" data-platform="zenmux">ZenMux</div>
-<div class="segmented-option" data-platform="huoshan">火山</div>
-</div>
-</div>
-<div>
-<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">生成模式</label>
-<div class="segmented-control master-switch p-1.5 bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
-<div class="segmented-option selected" onclick="toggleMode('txt2img')" style="">Text → Img</div>
-<div class="segmented-option" onclick="toggleMode('img2img')" style="">Img → Img</div>
-</div>
-<p class="text-[10px] text-gray-400 mt-2 ml-2 italic" style="">选择模式以显示特定选项</p>
-</div>
-<div class="" id="reference-section">
-<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-3 ml-1" style="">参考图像</label>
-<div class="dashed-upload w-full h-32 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-primary/5 transition-colors group">
-<div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-xl" style="">add_photo_alternate</span>
-</div>
-<p class="text-xs font-medium text-gray-600 dark:text-gray-300" style="">上传参考图片</p>
-<p class="text-[10px] text-gray-400 mt-1" style="">JPG、PNG、WEBP 格式，大小不超过 5MB</p>
-</div>
-</div>
-</div>
-<div class="col-span-12 lg:col-span-7 space-y-6 pl-0 lg:pl-4 border-l border-gray-100 dark:border-gray-800/50 flex flex-col h-full">
-<div class="flex justify-between items-center bg-gray-100/80 dark:bg-gray-800/80 rounded-2xl p-1.5 border border-gray-200/50 dark:border-gray-700/50 w-full mb-2" id="resolution-selector">
-<button class="res-btn selected flex-1 py-1.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary to-[#A855F7] shadow-sm">2K</button>
-<button class="res-btn flex-1 py-1.5 rounded-xl text-sm font-medium text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">4K</button>
-</div>
-<div>
-<div class="flex justify-between items-center mb-4 mt-2">
-<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase ml-1" style="">图片比例</label>
-<div class="bg-indigo-50 dark:bg-indigo-900/30 rounded-full px-3 py-1 text-[10px] font-bold text-indigo-600 dark:text-indigo-300 tracking-wide border border-indigo-100 dark:border-indigo-800" style="">1664x2080</div>
-</div>
-<div class="grid grid-cols-5 gap-3">
-<button class="ratio-btn bg-white/50" style="">1:1</button>
-<button class="ratio-btn bg-white/50" style="">3:2</button>
-<button class="ratio-btn bg-white/50" style="">2:3</button>
-<button class="ratio-btn bg-white/50" style="">3:4</button>
-<button class="ratio-btn bg-white/50" style="">4:3</button>
-<button class="ratio-btn selected" style="">4:5</button>
-<button class="ratio-btn bg-white/50" style="">5:4</button>
-<button class="ratio-btn bg-white/50" style="">9:16</button>
-<button class="ratio-btn bg-white/50" style="">16:9</button>
-<button class="ratio-btn bg-white/50" style="">21:9</button>
-</div>
-</div>
-<div>
-<label class="block text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-4 ml-1" style="">美学风格</label>
-<div class="grid grid-cols-3 gap-3">
-<div class="aesthetic-card bg-gradient-cinematic cursor-pointer" style="">电影级</div>
-<div class="aesthetic-card bg-gradient-ethereal cursor-pointer" style="">空灵</div>
-<div class="aesthetic-card bg-gradient-fluid cursor-pointer" style="">流体3D</div>
-<div class="aesthetic-card bg-gradient-minimal cursor-pointer" style="">极简</div>
-<div class="aesthetic-card bg-gradient-fantasy cursor-pointer" style="">奇幻</div>
-<div class="aesthetic-card bg-gradient-cyber cursor-pointer" style="">赛博朋克</div>
-<div class="aesthetic-card bg-no-style cursor-pointer selected">
-<span class="material-symbols-outlined text-[20px] mb-1 opacity-60" style="">block</span>
-<span class="" style="">无风格</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="h-1.5 w-full bg-gradient-to-r from-primary to-[#A855F7] absolute bottom-0 left-0"></div>
-</div>
-</div>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('config-modal');
@@ -671,4 +527,95 @@
         }
     });
 </script>
-</body></html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Category Filter Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const modelsGrid = document.getElementById('models-grid');
+
+    if (filterBtns.length > 0 && modelsGrid) {
+        const items = modelsGrid.querySelectorAll('.masonry-item-models');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => {
+                    b.className = 'filter-btn whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary';
+                });
+
+                btn.className = 'filter-btn whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-primary text-white border-primary shadow-glow-primary';
+
+                const filter = btn.getAttribute('data-filter');
+
+                // Animate items out
+                items.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(10px)';
+                });
+
+                // Wait for fade out, then filter and animate in
+                setTimeout(() => {
+                    items.forEach(item => {
+                        const tagSpan = item.querySelector('.uppercase');
+                        const tag = tagSpan ? tagSpan.textContent.trim().toLowerCase() : '';
+
+                        let shouldShow = false;
+                        if (filter === '全部') {
+                            shouldShow = true;
+                        } else if (filter === '微调' && tag === 'lora') {
+                            shouldShow = true;
+                        } else if (filter === '风格' && tag === 'style') {
+                            shouldShow = true;
+                        } else if (filter === '角色' && tag === 'character') {
+                            shouldShow = true;
+                        } else if (filter === '场景' && tag === 'environment') {
+                            shouldShow = true;
+                        } else if (filter === 'checkpoint' && tag === 'checkpoint') {
+                            shouldShow = true;
+                        } else if (filter === 'texture' && tag === 'texture') {
+                            shouldShow = true;
+                        }
+
+                        // Default to show all if mapping doesn't strictly match just for visual demo
+                        if (filter !== '全部' && !shouldShow && filter !== '微调' && filter !== '风格' && filter !== '角色' && filter !== '场景') {
+                             shouldShow = true;
+                        }
+
+                        if (filter === '全部' || shouldShow) {
+                            item.style.display = 'block';
+                            // Trigger reflow
+                            void item.offsetWidth;
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }, 300);
+            });
+        });
+    }
+
+    // Like button animation
+    const likeBtns = document.querySelectorAll('.favorite_border');
+    document.querySelectorAll('button').forEach(btn => {
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if(icon && icon.textContent.trim() === 'favorite_border') {
+            btn.addEventListener('click', function() {
+                if(icon.textContent === 'favorite_border') {
+                    icon.textContent = 'favorite';
+                    icon.classList.add('text-pink-500', 'fill-current');
+                    icon.classList.remove('text-gray-400');
+                    // Add a little pop animation
+                    icon.style.transform = 'scale(1.3)';
+                    setTimeout(() => icon.style.transform = 'scale(1)', 200);
+                } else {
+                    icon.textContent = 'favorite_border';
+                    icon.classList.remove('text-pink-500', 'fill-current');
+                    icon.classList.add('text-gray-400');
+                }
+            });
+        }
+    });
+});
+</script></body></html>
