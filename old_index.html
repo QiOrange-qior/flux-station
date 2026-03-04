@@ -309,27 +309,27 @@
 <p class="text-[10px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark font-medium mt-1">Creative Engine</p>
 </div>
 <nav class="space-y-1">
-            <a id="nav-gen" class="flex items-center px-3 py-2.5 text-sm font-medium rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-primary group transition-all" href="javascript:void(0)" onclick="switchView('gen')">
-                <span class="material-symbols-outlined mr-3 text-[20px]">auto_awesome</span>
+<a class="flex items-center px-3 py-2.5 text-sm font-medium rounded-xl border transition-all nav-link text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">auto_awesome</span>
                 素材生成
             </a>
-            <a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="javascript:void(0)">
-                <span class="material-symbols-outlined mr-3 text-[20px]">movie</span>
+<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">movie</span>
                 视频生成
             </a>
-            <a id="nav-plaza" class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="javascript:void(0)" onclick="switchView('plaza')">
-                <span class="material-symbols-outlined mr-3 text-[20px]">grid_view</span>
+<a class="flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-primary group" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">grid_view</span>
                 模型广场
             </a>
-            <a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="javascript:void(0)">
-                <span class="material-symbols-outlined mr-3 text-[20px]">api</span>
+<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">api</span>
                 API管理
             </a>
-            <a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="javascript:void(0)">
-                <span class="material-symbols-outlined mr-3 text-[20px]">folder_special</span>
+<a class="nav-link flex items-center px-3 py-2.5 text-sm font-medium rounded-xl text-text-muted-light dark:text-text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main-light dark:hover:text-text-main-dark transition-all relative overflow-hidden" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">folder_special</span>
                 资产
             </a>
-        </nav>
+</nav>
 </div>
 <div class="p-4 border-t border-gray-100 dark:border-gray-800">
 <div class="flex justify-between items-center mb-2">
@@ -353,7 +353,6 @@
 </div>
 </div>
 </aside>
-<div id="generation-view" class="flex-1 flex w-full h-full">
 <main class="flex-1 relative flex flex-col h-full overflow-hidden bg-[#FFFCFC] dark:bg-[#09090b] transition-colors"><div class="absolute inset-0 z-0 pointer-events-none overflow-hidden"><div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-100/40 dark:bg-purple-900/10 rounded-full blur-[120px]"></div></div><div class="flex-1 z-10 flex flex-col h-full w-full relative overflow-y-auto overflow-x-hidden custom-scrollbar"><div class="sticky top-0 z-30 pt-10 pb-6 px-10 bg-[#FFFCFC]/80 dark:bg-[#09090b]/80 backdrop-blur-xl border-b border-gray-100/50 dark:border-gray-800/50 flex flex-col gap-6"><div class="flex items-end justify-between"><h2 class="font-serif text-5xl text-text-main-light dark:text-text-main-dark tracking-tight">Discover <span class="text-iris-gradient italic">Models</span>.</h2><button class="bg-[#6366F1] hover:bg-[#5558e3] text-white text-sm font-medium rounded-xl px-5 py-2.5 transition-colors shadow-glow-primary flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">upload</span>上传模型</button></div><div class="flex items-center gap-4"><div class="flex-1 relative group"><span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">search</span><input class="w-full bg-white dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-2xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all shadow-sm" placeholder="搜索模型、风格、创作者..." type="text"/></div><div class="flex items-center gap-2 overflow-x-auto no-scrollbar"><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-primary text-white border-primary shadow-glow-primary filter-btn" data-filter="全部">全部 (All)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="微调">微调 (LoRA)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="风格">风格 (Style)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="角色">角色 (Character)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="场景">场景 (Environment)</button></div></div></div><div class="p-10">
 <div class="masonry-grid-models" id="models-grid">
     <!-- Card 1: Gemini 3 Pro -->
@@ -481,138 +480,32 @@
         </div>
     </div>
 </div></div></div></main>
-
+<aside class="w-80 flex-shrink-0 border-l border-gray-200 dark:border-gray-800 bg-surface-light/50 dark:bg-surface-dark/50 backdrop-blur-md z-20 flex flex-col h-full hidden">
+<div class="p-6 pb-2 border-b border-gray-100 dark:border-gray-800">
+<h3 class="font-serif text-2xl text-text-main-light dark:text-text-main-dark mb-1">资产库</h3>
+<p class="text-[10px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark font-medium mb-4">精选收藏</p>
+<div class="flex gap-2">
+<button class="flex-1 py-1.5 px-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm text-xs font-medium text-text-main-light dark:text-text-main-dark flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">folder_open</span>
+                我的文件
+            </button>
+<button class="flex-1 py-1.5 px-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-xs text-text-muted-light dark:text-text-muted-dark hover:text-text-main-light dark:hover:text-text-main-dark transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                历史记录
+            </button>
+<button class="flex-1 py-1.5 px-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-xs text-text-muted-light dark:text-text-muted-dark hover:text-text-main-light dark:hover:text-text-main-dark transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">favorite_border</span>
+                已保存
+            </button>
 </div>
-<div id="plaza-view" class="flex-1 flex w-full h-full hidden">
-<main class="flex-1 relative flex flex-col h-full overflow-hidden bg-[#FFFCFC] dark:bg-[#09090b] transition-colors"><div class="absolute inset-0 z-0 pointer-events-none overflow-hidden"><div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-100/40 dark:bg-purple-900/10 rounded-full blur-[120px]"></div></div><div class="flex-1 z-10 flex flex-col h-full w-full relative overflow-y-auto overflow-x-hidden custom-scrollbar"><div class="sticky top-0 z-30 pt-10 pb-6 px-10 bg-[#FFFCFC]/80 dark:bg-[#09090b]/80 backdrop-blur-xl border-b border-gray-100/50 dark:border-gray-800/50 flex flex-col gap-6"><div class="flex items-end justify-between"><h2 class="font-serif text-5xl text-text-main-light dark:text-text-main-dark tracking-tight">Discover <span class="text-iris-gradient italic">Models</span>.</h2><button class="bg-[#6366F1] hover:bg-[#5558e3] text-white text-sm font-medium rounded-xl px-5 py-2.5 transition-colors shadow-glow-primary flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">upload</span>上传模型</button></div><div class="flex items-center gap-4"><div class="flex-1 relative group"><span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">search</span><input class="w-full bg-white dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-2xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all shadow-sm" placeholder="搜索模型、风格、创作者..." type="text"/></div><div class="flex items-center gap-2 overflow-x-auto no-scrollbar"><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-primary text-white border-primary shadow-glow-primary filter-btn" data-filter="全部">全部 (All)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="微调">微调 (LoRA)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="风格">风格 (Style)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="角色">角色 (Character)</button><button class="whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary filter-btn" data-filter="场景">场景 (Environment)</button></div></div></div><div class="p-10">
-
-<div class="masonry-grid-models" id="models-grid">
-    <!-- Card 1: Gemini 3 Pro -->
-    <div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.0s;">
-        <div class="relative w-full aspect-[3/4] overflow-hidden">
-            <img alt="Gemini 3 Pro Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv4xkKxRrWob2cDxas59tYImxsvr706WnvVWMQM1ql1KywOpcN3iNpuhCRVhJQGwkzTyvZ9CcZQPgJZubgR76DaGpulfqV8FiNRYWzGFagWzxP7WguN2LSz0rRpvDPo1HXN_fArch8exoTT-K2Fmnapai9UFgM8-Bd8lQcfrydWh-QwtjDgKb9KWo5PngnXjSJ_HglLoyZnUj_QthOsd6UHTr-s6c4j2QsYeHJpdcLEVwUlqr8U_HXpT19bBStNELTycGirWOHH6JI"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="absolute top-4 left-4 flex gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">风格</span>
-            </div>
-            <div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p class="text-white/90 text-xs mb-2 line-clamp-2">专为专业视觉资产设计，利用高级推理完成复杂指令，支持高保真文字渲染与 4K 输出。</p>
-                <button class="w-full bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button>
-            </div>
-        </div>
-        <div class="p-4">
-            <div class="flex justify-between items-start mb-1">
-                <h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Gemini 3 Pro Image</h3>
-            </div>
-            <p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@GoogleDeepMind</p>
-            <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                <div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>124K</div>
-                <button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 2: Gemini 3.1 Flash -->
-    <div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.1s;">
-        <div class="relative w-full aspect-video overflow-hidden">
-            <img alt="Gemini 3.1 Flash" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMbFP54OkePxxiyR89odXu1KverWJTEfXFuGy1OduAQns-Nf1CfCul2f4SuSDIKbsqq4HXMFd3pFpShn1F6u-nmf14ClWZlhNpAtnYsG3hmMKQln0mxulIxeF8DXsy53Vh9eXJc-zD9kuHK5vdG3kXcYA4QJ1RoT3HGSTTaPjWc9UnK3souRNjxHQIMaFpH8wLD1RAbBNktv5i7mCfePS1FgBppiR7RmfGZB3HlHunRehix9hfgpSqmdI3Xw0EHPW3HxQ0xbrj7PU7"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="absolute top-4 left-4 flex gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">场景</span>
-            </div>
-            <div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p class="text-white/90 text-xs mb-2 line-clamp-2">为速度与高并发优化，支持多达 14 张参考图混合输入，并首创 Google 搜索图片接地能力。</p>
-                <button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button>
-            </div>
-        </div>
-        <div class="p-4">
-            <div class="flex justify-between items-start mb-1">
-                <h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Gemini 3.1 Flash Image</h3>
-            </div>
-            <p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@GoogleDeepMind</p>
-            <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                <div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>312K</div>
-                <button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 3: Doubao Seedream 5.0 -->
-    <div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.2s;">
-        <div class="relative w-full aspect-square overflow-hidden">
-            <img alt="Seedream 5.0" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjDTJ_TDCOqlVAOFTjJ1PTZhF48F8a0oW0-A2yoWUCJEY5cHOr0ag8UuyP6l_ajopHOkRhplhxSoJ-oBv-scj5xTW57reVwjQZAhoBprTK_g-m0uO-9pzSSw3H0Wtw45PqhS8kSCxtMZsGjQo21wY8b2b1r1Qi8NmBmopBpI5Fm-Z6noTiHsjeaQFC3eVX-Y-5aGYxsPwGS0cipQrEjETV-3XRvHgJ8NjmVHkKtKmtvqkV7cisLA48vAh_hP4MxHrg93OPDw8e0uTj"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="absolute top-4 left-4 flex gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">角色</span>
-            </div>
-            <div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p class="text-white/90 text-xs mb-2 line-clamp-2">火山引擎旗舰视觉生成模型，擅长商业摄影、角色一致性控制及高动态范围的艺术创作。</p>
-                <button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button>
-            </div>
-        </div>
-        <div class="p-4">
-            <div class="flex justify-between items-start mb-1">
-                <h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">豆包·Seedream 5.0</h3>
-            </div>
-            <p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-400"></div>@Volcengine</p>
-            <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                <div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>85K</div>
-                <button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 4: Doubao Seedream 4.5 -->
-    <div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.3s;">
-        <div class="relative w-full aspect-square overflow-hidden">
-            <img alt="Seedream 4.5" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBwlXCdeDU2DlLOBQdLdj5MjQMMR9R1yYJBGv05_VL3_UYGDJbtpPKvbCLp-ALK7e-KQKF4gdzJyDSjlNylsL5vigFFu_IDIkkNulDROGaRJsYJwlKw-stLhfp3YaVLxIhwJiLo1gTkB10W1wWvvz_oUlHVphq1B0XX1QnGzUq2OCUTF6Fn2peILXG3gUR6SCfYhqGd7bUdZcG9R-NpG3WAc-29gJ-BAS5PdRIB2TaNrRuhGx7jj0t9LlXXlrVVOwbUvV3NDe-b8E3"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="absolute top-4 left-4 flex gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">微调</span>
-            </div>
-            <div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p class="text-white/90 text-xs mb-2 line-clamp-2">火山方舟稳定版本，极佳的构图理解能力与二次元风格支持，适用于广泛的泛化场景。</p>
-                <button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button>
-            </div>
-        </div>
-        <div class="p-4">
-            <div class="flex justify-between items-start mb-1">
-                <h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">豆包·Seedream 4.5</h3>
-            </div>
-            <p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-400"></div>@Volcengine</p>
-            <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                <div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>192K</div>
-                <button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 5: Imagen 3 -->
-    <div class="masonry-item-models mb-6 group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 opacity-0 animate-[floatIn_0.6s_ease-out_forwards]" style="animation-delay: 0.4s;">
-        <div class="relative w-full aspect-[2/3] overflow-hidden">
-            <img alt="Imagen 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4diuvTX4OOq3A6E7kZXBMbbVv8NfCUV66Bl4B2BZJGJ4zhzwbxdEYTlJyz83mwWieXmhQY3Tgw0V_t_yInYdve5w-Uf8QqFXq-2eiKxAIJKPCynLK493Z33o6gIYLlBn8h05Fc3RAX7yjgpOyjDnYO4zJOcFbcOLemKrg3u95nu2AbUIrYu5QCZOdO66Bjx1wpXHWxWzD436_J5gSmNakUIrOrlpiq6gWAzGKoPhCW2VHyHKoNuDjZhfM3sbqUVPNyrN-yudEdztN"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="absolute top-4 left-4 flex gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase border border-white/20 shadow-sm">角色</span>
-            </div>
-            <div class="absolute inset-0 flex flex-col justify-end p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p class="text-white/90 text-xs mb-2 line-clamp-2">Google 的专业图像生成模型，具备无与伦比的照片级真实感及细节控制能力。</p>
-                <button class="w-full mt-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white font-medium rounded-xl py-2.5 transition-colors border border-white/30 flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">auto_fix_high</span>使用模型</button>
-            </div>
-        </div>
-        <div class="p-4">
-            <div class="flex justify-between items-start mb-1">
-                <h3 class="font-semibold text-text-main-light dark:text-text-main-dark text-base truncate pr-2">Imagen 3</h3>
-            </div>
-            <p class="text-xs text-text-muted-light dark:text-text-muted-dark flex items-center gap-1.5 mt-1"><div class="w-4 h-4 rounded-full bg-gradient-to-tr from-primary to-pink-500"></div>@Google</p>
-            <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                <div class="flex items-center gap-1 text-[11px] text-gray-500 dark:text-gray-400"><span class="material-symbols-outlined text-[14px]">download</span>2M+</div>
-                <button class="text-gray-400 hover:text-pink-500 transition-colors"><span class="material-symbols-outlined text-[16px]">favorite_border</span></button>
-            </div>
-        </div>
-    </div>
-</div></div></div></main>
 </div>
+<div class="flex-1 flex flex-col items-center justify-center p-8 text-center">
+<div class="w-24 h-24 rounded-full bg-gray-50 dark:bg-gray-800/50 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 text-4xl">auto_fix_high</span>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark font-light italic">等待您的创作...</p>
+</div>
+</aside>
 <!-- Configuration Modal Overlay -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -797,282 +690,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             shouldShow = true;
                         } else if (filter === '微调' && tag === 'lora') {
                             shouldShow = true;
-                        } else if (filter === '风格' && (tag === '风格' || tag === 'style')) {
+                        } else if (filter === '风格' && tag === 'style') {
                             shouldShow = true;
-                        } else if (filter === '角色' && (tag === '角色' || tag === 'character')) {
+                        } else if (filter === '角色' && tag === 'character') {
                             shouldShow = true;
-                        } else if (filter === '场景' && (tag === '场景' || tag === 'environment')) {
-                            shouldShow = true;
-                        } else if (filter === 'checkpoint' && tag === 'checkpoint') {
-                            shouldShow = true;
-                        } else if (filter === 'texture' && tag === 'texture') {
-                            shouldShow = true;
-                        }
-
-                        // Default to show all if mapping doesn't strictly match just for visual demo
-                        if (filter !== '全部' && !shouldShow && filter !== '微调' && filter !== '风格' && filter !== '角色' && filter !== '场景') {
-                             shouldShow = true;
-                        }
-
-                        if (filter === '全部' || shouldShow) {
-                            item.style.display = 'block';
-                            // Trigger reflow
-                            void item.offsetWidth;
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                }, 300);
-            });
-        });
-    }
-
-    // Like button animation
-    const likeBtns = document.querySelectorAll('.favorite_border');
-    document.querySelectorAll('button').forEach(btn => {
-        const icon = btn.querySelector('.material-symbols-outlined');
-        if(icon && icon.textContent.trim() === 'favorite_border') {
-            btn.addEventListener('click', function() {
-                if(icon.textContent === 'favorite_border') {
-                    icon.textContent = 'favorite';
-                    icon.classList.add('text-pink-500', 'fill-current');
-                    icon.classList.remove('text-gray-400');
-                    // Add a little pop animation
-                    icon.style.transform = 'scale(1.3)';
-                    setTimeout(() => icon.style.transform = 'scale(1)', 200);
-                } else {
-                    icon.textContent = 'favorite_border';
-                    icon.classList.remove('text-pink-500', 'fill-current');
-                    icon.classList.add('text-gray-400');
-                }
-            });
-        }
-    });
-});
-</script>
-
-<script>
-function switchView(view) {
-    const genView = document.getElementById('generation-view');
-    const plazaView = document.getElementById('plaza-view');
-    const navGen = document.getElementById('nav-gen');
-    const navPlaza = document.getElementById('nav-plaza');
-
-    const activeClasses = ['bg-white', 'dark:bg-gray-800', 'shadow-sm', 'border', 'border-gray-100', 'dark:border-gray-700', 'text-primary'];
-    const inactiveClasses = ['nav-link', 'text-text-muted-light', 'dark:text-text-muted-dark', 'hover:bg-gray-50', 'dark:hover:bg-gray-800', 'hover:text-text-main-light', 'dark:hover:text-text-main-dark', 'relative', 'overflow-hidden'];
-
-    if (view === 'gen') {
-        genView.classList.remove('hidden');
-        plazaView.classList.add('hidden');
-
-        navGen.classList.add(...activeClasses);
-        navGen.classList.remove(...inactiveClasses);
-
-        navPlaza.classList.add(...inactiveClasses);
-        navPlaza.classList.remove(...activeClasses);
-    } else if (view === 'plaza') {
-        plazaView.classList.remove('hidden');
-        genView.classList.add('hidden');
-
-        navPlaza.classList.add(...activeClasses);
-        navPlaza.classList.remove(...inactiveClasses);
-
-        navGen.classList.add(...inactiveClasses);
-        navGen.classList.remove(...activeClasses);
-    }
-}
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('config-modal');
-        const openBtn = document.getElementById('open-config-btn');
-        const closeBtn = document.getElementById('close-config-btn');
-
-        if (openBtn && modal) {
-            openBtn.addEventListener('click', () => {
-                modal.classList.remove('hidden');
-            });
-        }
-
-        if (closeBtn && modal) {
-            closeBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-            });
-        }
-
-        // Platform & Model logic
-        const platformModels = {
-            'nebula': [
-                'gemini-3-pro-image-preview',
-                'gemini-3.1-flash-image-preview',
-                'doubao-seedream-4-5-251128',
-                'doubao-seedream-4-0-250828'
-            ],
-            'zenmux': [
-                'google/gemini-3.1-flash-image-preview',
-                'google/gemini-3-pro-image-preview'
-            ],
-            'huoshan': [
-                'doubao-seedream-5-0-260128',
-                'doubao-seedream-4-5-251128',
-                'doubao-seedream-4-0-250828'
-            ]
-        };
-
-        const platformSelector = document.getElementById('platform-selector');
-        const platformOptions = platformSelector.querySelectorAll('.segmented-option');
-        const modelList = document.getElementById('model-list');
-        const modelSelectBtn = document.getElementById('model-select-btn');
-        const modelDropdown = document.getElementById('model-dropdown');
-        const selectedModelName = document.getElementById('selected-model-name');
-        const selectedModelDesc = document.getElementById('selected-model-desc');
-
-        // Initial setup
-        let activePlatform = 'zenmux';
-        let currentModel = platformModels['zenmux'][0];
-
-        function getPlatformDisplayName(key) {
-            switch(key) {
-                case 'nebula': return 'NEBULA';
-                case 'zenmux': return 'ZENMUX';
-                case 'huoshan': return '火山';
-                default: return key.toUpperCase();
-            }
-        }
-
-        function populateModels(platform) {
-            modelList.innerHTML = '';
-            const models = platformModels[platform] || [];
-
-            models.forEach(modelId => {
-                const li = document.createElement('li');
-                li.className = `px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors ${currentModel === modelId ? 'bg-primary/10 dark:bg-primary/20 text-primary' : 'text-gray-700 dark:text-gray-300'}`;
-                li.innerHTML = `
-                    <div class="font-medium truncate text-sm">${modelId}</div>
-                    <div class="text-[10px] text-gray-500 uppercase mt-0.5">${getPlatformDisplayName(platform)}</div>
-                `;
-
-                li.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    selectModel(modelId, platform);
-                    modelDropdown.classList.add('hidden');
-                });
-
-                modelList.appendChild(li);
-            });
-        }
-
-        function selectModel(modelId, platform) {
-            currentModel = modelId;
-            selectedModelName.textContent = modelId;
-            selectedModelDesc.textContent = getPlatformDisplayName(platform);
-
-            // Re-render list to update highlighted item
-            populateModels(platform);
-        }
-
-        platformOptions.forEach(opt => {
-            opt.addEventListener('click', (e) => {
-                // Update platform selector styling
-                platformOptions.forEach(o => o.classList.remove('selected'));
-                e.target.classList.add('selected');
-
-                activePlatform = e.target.getAttribute('data-platform');
-
-                // Select the first model of the new platform by default
-                if(platformModels[activePlatform] && platformModels[activePlatform].length > 0) {
-                     selectModel(platformModels[activePlatform][0], activePlatform);
-                } else {
-                     selectModel('Unknown Model', activePlatform);
-                }
-            });
-        });
-
-        // Toggle Dropdown
-        if (modelSelectBtn && modelDropdown) {
-            modelSelectBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                modelDropdown.classList.toggle('hidden');
-            });
-
-            // Close dropdown when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!modelSelectBtn.contains(e.target) && !modelDropdown.contains(e.target)) {
-                    modelDropdown.classList.add('hidden');
-                }
-            });
-        }
-
-        // Initialize if DOM is ready
-        if (platformSelector && modelList) {
-            populateModels(activePlatform);
-        }
-
-        // Resolution Toggle Logic
-        const resSelector = document.getElementById('resolution-selector');
-        if (resSelector) {
-            const resBtns = resSelector.querySelectorAll('.res-btn');
-            resBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    // Reset all
-                    resBtns.forEach(b => {
-                        b.classList.remove('text-white', 'bg-gradient-to-r', 'from-primary', 'to-[#A855F7]', 'shadow-sm', 'font-semibold', 'selected');
-                        b.classList.add('text-gray-500', 'hover:text-gray-700', 'dark:hover:text-gray-300', 'font-medium');
-                    });
-
-                    // Activate clicked
-                    e.target.classList.remove('text-gray-500', 'hover:text-gray-700', 'dark:hover:text-gray-300', 'font-medium');
-                    e.target.classList.add('text-white', 'bg-gradient-to-r', 'from-primary', 'to-[#A855F7]', 'shadow-sm', 'font-semibold', 'selected');
-                });
-            });
-        }
-    });
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Category Filter Logic
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const modelsGrid = document.getElementById('models-grid');
-
-    if (filterBtns.length > 0 && modelsGrid) {
-        const items = modelsGrid.querySelectorAll('.masonry-item-models');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active state
-                filterBtns.forEach(b => {
-                    b.className = 'filter-btn whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-primary/50 hover:text-primary';
-                });
-
-                btn.className = 'filter-btn whitespace-nowrap px-4 py-2.5 rounded-2xl text-sm font-medium transition-all shadow-sm border bg-primary text-white border-primary shadow-glow-primary';
-
-                const filter = btn.getAttribute('data-filter');
-
-                // Animate items out
-                items.forEach(item => {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(10px)';
-                });
-
-                // Wait for fade out, then filter and animate in
-                setTimeout(() => {
-                    items.forEach(item => {
-                        const tagSpan = item.querySelector('.uppercase');
-                        const tag = tagSpan ? tagSpan.textContent.trim().toLowerCase() : '';
-
-                        let shouldShow = false;
-                        if (filter === '全部') {
-                            shouldShow = true;
-                        } else if (filter === '微调' && tag === 'lora') {
-                            shouldShow = true;
-                        } else if (filter === '风格' && (tag === '风格' || tag === 'style')) {
-                            shouldShow = true;
-                        } else if (filter === '角色' && (tag === '角色' || tag === 'character')) {
-                            shouldShow = true;
-                        } else if (filter === '场景' && (tag === '场景' || tag === 'environment')) {
+                        } else if (filter === '场景' && tag === 'environment') {
                             shouldShow = true;
                         } else if (filter === 'checkpoint' && tag === 'checkpoint') {
                             shouldShow = true;
