@@ -345,12 +345,12 @@
     </div>
 
     <div class="p-4 border-t border-gray-100 dark:border-gray-800">
-        <div class="flex justify-between items-center mb-2">
+            <div class="flex justify-between items-center mb-2">
             <span class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">存储空间</span>
             <span class="text-xs font-medium text-text-main-light dark:text-text-main-dark">已用 12%</span>
         </div>
-        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mt-1">
-            <div class="bg-primary h-1.5 rounded-full" style="width: 12%"></div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mt-1">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 12%"></div>
         </div>
     </div>
     <div class="p-4 border-t border-gray-100 dark:border-gray-800">
@@ -435,13 +435,18 @@
     <aside class="w-80 flex-shrink-0 border-l border-gray-200 dark:border-gray-800 bg-surface-light/50 dark:bg-surface-dark/50 backdrop-blur-md z-20 flex flex-col h-full relative">
         <div class="p-6 pb-4">
             <h3 class="font-serif text-[32px] text-[#111827] dark:text-gray-100 mb-2 tracking-tight">Assets Library</h3>
-            <p class="text-[10px] uppercase tracking-[0.2em] text-[#6366F1]/80 dark:text-[#6366F1]/80 font-bold mb-6">Recent History</p>
-            <div class="flex p-1.5 bg-[#F8F7FF] dark:bg-gray-800 rounded-[20px] mb-6 border border-white dark:border-gray-700 shadow-sm">
-                <button class="flex-1 py-2.5 px-4 rounded-[14px] bg-white dark:bg-gray-700 shadow-sm text-[12px] font-bold text-[#6366F1] dark:text-white flex items-center justify-center uppercase tracking-[0.05em] border border-white dark:border-gray-600">
-                    RECENT
+            <p class="text-[10px] uppercase tracking-[0.2em] text-[#6366F1]/80 dark:text-[#6366F1]/80 font-bold mb-6">CURATED COLLECTION</p>
+
+            <div class="flex gap-4 mb-6 relative border-b border-gray-100 dark:border-gray-800 pb-2">
+                <button class="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 text-[13px] font-semibold text-text-main-light dark:text-white z-10 hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined text-[18px]">folder_open</span><span>My Files</span>
+
                 </button>
-                <button class="flex-1 py-2.5 px-4 rounded-[14px] text-[12px] font-bold text-[#6B7280] dark:text-gray-400 hover:text-[#6366F1] dark:hover:text-white transition-colors flex items-center justify-center uppercase tracking-[0.05em]">
-                    COLLECTIONS
+                <button class="flex items-center justify-center gap-1.5 px-3 py-2 text-[13px] font-medium text-gray-500 dark:text-gray-400 hover:text-text-main-light dark:hover:text-white z-10 transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">history</span><span>History</span>
+                </button>
+                <button class="flex items-center justify-center gap-1.5 px-3 py-2 text-[13px] font-medium text-gray-500 dark:text-gray-400 hover:text-text-main-light dark:hover:text-white z-10 transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">favorite_border</span><span>Saved</span>
                 </button>
             </div>
             <div class="grid grid-cols-2 gap-3 overflow-y-auto max-h-[calc(100vh-280px)] no-scrollbar pr-1">
@@ -916,13 +921,177 @@
 </div>
 <!-- VAULT VIEW -->
 <div id="vault-view" class="flex-1 flex h-full min-w-0 hidden">
-    <main class="flex-1 relative flex flex-col h-full overflow-hidden bg-[#FFFCFC] dark:bg-[#09090b] transition-colors">
+    <main class="flex-1 relative flex flex-col h-full overflow-hidden bg-[#F9F9FB] dark:bg-[#09090b] transition-colors">
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-100/40 dark:bg-purple-900/10 rounded-full blur-[120px]"></div>
+            <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-indigo-100/40 dark:bg-indigo-900/10 rounded-full blur-[120px]"></div>
         </div>
-        <div class="flex-1 z-10 flex flex-col items-center justify-center p-10">
-            <h2 class="font-serif text-5xl text-text-main-light dark:text-text-main-dark tracking-tight mb-6">资产 (Project Vault)</h2>
-            <p class="text-gray-500">Coming soon...</p>
+
+        <div class="flex-1 z-10 flex flex-col h-full w-full relative overflow-y-auto overflow-x-hidden custom-scrollbar">
+            <div class="sticky top-0 z-30 pt-10 pb-6 px-10 bg-[#F9F9FB]/80 dark:bg-[#09090b]/80 backdrop-blur-xl border-b border-gray-100/50 dark:border-gray-800/50 flex flex-col gap-6">
+                <div class="flex items-end justify-between">
+                    <h2 class="font-serif text-5xl text-text-main-light dark:text-text-main-dark tracking-tight">Project <span class="text-iris-gradient italic">Vault</span>.</h2>
+                    <div class="flex gap-3">
+                        <button class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 text-sm font-medium rounded-xl px-4 py-2.5 transition-colors shadow-sm hover:shadow-md flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">filter_list</span>筛选
+                        </button>
+                        <button class="bg-[#6366F1] hover:bg-[#5558e3] text-white text-sm font-medium rounded-xl px-5 py-2.5 transition-colors shadow-glow-primary flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">create_new_folder</span>新建合集
+                        </button>
+                    </div>
+                </div>
+
+                                <div class="flex gap-6 border-b border-gray-200 dark:border-gray-700">
+                    <button id="tab-all-gens" onclick="switchVaultTab('all-gens')" class="pb-3 text-sm font-semibold text-primary border-b-2 border-primary">所有生成 (All Generations)</button>
+                    <button id="tab-history" onclick="switchVaultTab('history')" class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors">历史记录 (History)</button>
+                    <button id="tab-favorites" onclick="switchVaultTab('favorites')" class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors">收藏夹 (Favorites)</button>
+                    <button id="tab-videos" onclick="switchVaultTab('videos')" class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors">视频资产 (Videos)</button>
+                </div>
+            </div>
+
+            <div class="p-10">
+                <div id="vault-all-gens" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+                    <!-- Asset 1 (16:9) -->
+                    <div class="break-inside-avoid relative group rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-1 bg-white border border-gray-100 dark:border-gray-800">
+                        <img class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMbFP54OkePxxiyR89odXu1KverWJTEfXFuGy1OduAQns-Nf1CfCul2f4SuSDIKbsqq4HXMFd3pFpShn1F6u-nmf14ClWZlhNpAtnYsG3hmMKQln0mxulIxeF8DXsy53Vh9eXJc-zD9kuHK5vdG3kXcYA4QJ1RoT3HGSTTaPjWc9UnK3souRNjxHQIMaFpH8wLD1RAbBNktv5i7mCfePS1FgBppiR7RmfGZB3HlHunRehix9hfgpSqmdI3Xw0EHPW3HxQ0xbrj7PU7" alt="Cinematic 16:9">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-sm opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            <span class="text-[10px] font-bold text-white tracking-wider">16:9</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-white/90 dark:bg-black/60 backdrop-blur-md rounded-2xl p-2 flex gap-2 shadow-2xl scale-95 group-hover:scale-100 transition-transform">
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700" title="下载"><span class="material-symbols-outlined text-[18px]">download</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700" title="重新生成"><span class="material-symbols-outlined text-[18px]">replay</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-pink-500 hover:text-white transition-colors text-gray-700" title="收藏"><span class="material-symbols-outlined text-[18px]">favorite</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset 2 (4:5) -->
+                    <div class="break-inside-avoid relative group rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-1 bg-white border border-gray-100 dark:border-gray-800">
+                        <img class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv4xkKxRrWob2cDxas59tYImxsvr706WnvVWMQM1ql1KywOpcN3iNpuhCRVhJQGwkzTyvZ9CcZQPgJZubgR76DaGpulfqV8FiNRYWzGFagWzxP7WguN2LSz0rRpvDPo1HXN_fArch8exoTT-K2Fmnapai9UFgM8-Bd8lQcfrydWh-QwtjDgKb9KWo5PngnXjSJ_HglLoyZnUj_QthOsd6UHTr-s6c4j2QsYeHJpdcLEVwUlqr8U_HXpT19bBStNELTycGirWOHH6JI" alt="Portrait">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-sm opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            <span class="text-[10px] font-bold text-white tracking-wider">4:5</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-white/90 dark:bg-black/60 backdrop-blur-md rounded-2xl p-2 flex gap-2 shadow-2xl scale-95 group-hover:scale-100 transition-transform">
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">download</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">replay</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-pink-500 hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">favorite</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset 3 (1:1) -->
+                    <div class="break-inside-avoid relative group rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-1 bg-white border border-gray-100 dark:border-gray-800">
+                        <img class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBwlXCdeDU2DlLOBQdLdj5MjQMMR9R1yYJBGv05_VL3_UYGDJbtpPKvbCLp-ALK7e-KQKF4gdzJyDSjlNylsL5vigFFu_IDIkkNulDROGaRJsYJwlKw-stLhfp3YaVLxIhwJiLo1gTkB10W1wWvvz_oUlHVphq1B0XX1QnGzUq2OCUTF6Fn2peILXG3gUR6SCfYhqGd7bUdZcG9R-NpG3WAc-29gJ-BAS5PdRIB2TaNrRuhGx7jj0t9LlXXlrVVOwbUvV3NDe-b8E3" alt="Square">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-sm opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            <span class="text-[10px] font-bold text-white tracking-wider">1:1</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-white/90 dark:bg-black/60 backdrop-blur-md rounded-2xl p-2 flex gap-2 shadow-2xl scale-95 group-hover:scale-100 transition-transform">
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">download</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">replay</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-pink-500 hover:text-white transition-colors text-pink-500"><span class="material-symbols-outlined text-[18px] fill-current">favorite</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset 4 (3:4) -->
+                    <div class="break-inside-avoid relative group rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-1 bg-white border border-gray-100 dark:border-gray-800">
+                        <img class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhuGajJtnXR1sorOl6O549zjHT_8aMphzK-NSigaX5SlHpZEIF6yXl9BOv1CE7f9XrqiPNSqu5hrl04IK9UeN9D3vkdwSsrNvp-URHL3MgPuNZB9-XjrPkeslL034y8G5r6yeTUK5fMx2IFE8qSVY6XRu2Wy5WYuGR2SwEOokLdWONxbfk_YXmaqRmqVF0WGeqZRQ22geyasbY7UdkiNgeuRjK_wBR14aoEVy6-rANke-WrM07Jq0nB-4S6gVu0Ez3kCBu8uZa_1QQ" alt="Vertical">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-sm opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            <span class="text-[10px] font-bold text-white tracking-wider">3:4</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-white/90 dark:bg-black/60 backdrop-blur-md rounded-2xl p-2 flex gap-2 shadow-2xl scale-95 group-hover:scale-100 transition-transform">
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">download</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">replay</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-pink-500 hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">favorite</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset 5 (16:9 Video placeholder) -->
+                    <div class="break-inside-avoid relative group rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-1 bg-gray-900 border border-gray-800">
+                        <div class="w-full aspect-video flex items-center justify-center bg-gradient-to-tr from-indigo-900/50 to-purple-900/50">
+                            <span class="material-symbols-outlined text-white/50 text-6xl">play_circle</span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-3 right-3 bg-primary/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-sm opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[12px] text-white">movie</span>
+                            <span class="text-[10px] font-bold text-white tracking-wider">0:04</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-white/90 dark:bg-black/60 backdrop-blur-md rounded-2xl p-2 flex gap-2 shadow-2xl scale-95 group-hover:scale-100 transition-transform">
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">download</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-pink-500 hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">favorite</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asset 6 (1:1) -->
+                    <div class="break-inside-avoid relative group rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-all duration-500 hover:-translate-y-1 bg-white border border-gray-100 dark:border-gray-800">
+                        <img class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDacAJ-yhHGgISLQJxTkny7rtBqoJtNIPHYkP4Kg1or6xl4E6I3q2mfpOE3y58emF5xdVEM5fjR5u3-F4PZB-7zxifGjarFF7h2eTIZx45sguRV_07VV8LNxT5BsFJms4BUXbXaGUeGETmFSmQZeztGhgGacuyyP2V_L3Rh5thBRH7pYqy_cA_JBjdHoJbxyBMyCQm2_xAhnZaDA9PQQJ0MlRkMOYYQZoX5rk4kg1vZcbUXrJCGmG7QDCwCiwXC7Dgj7doDQ-W-KCOA" alt="Neon">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-sm opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            <span class="text-[10px] font-bold text-white tracking-wider">1:1</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-white/90 dark:bg-black/60 backdrop-blur-md rounded-2xl p-2 flex gap-2 shadow-2xl scale-95 group-hover:scale-100 transition-transform">
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">download</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-primary hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">replay</span></button>
+                                <button class="p-2.5 rounded-xl bg-white/80 hover:bg-pink-500 hover:text-white transition-colors text-gray-700"><span class="material-symbols-outlined text-[18px]">favorite</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="vault-history" class="hidden flex-col gap-10">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-gray-800 dark:text-gray-200 border-b border-gray-100 dark:border-gray-800 pb-2">今天 (Today)</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <div class="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-800 aspect-square">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv4xkKxRrWob2cDxas59tYImxsvr706WnvVWMQM1ql1KywOpcN3iNpuhCRVhJQGwkzTyvZ9CcZQPgJZubgR76DaGpulfqV8FiNRYWzGFagWzxP7WguN2LSz0rRpvDPo1HXN_fArch8exoTT-K2Fmnapai9UFgM8-Bd8lQcfrydWh-QwtjDgKb9KWo5PngnXjSJ_HglLoyZnUj_QthOsd6UHTr-s6c4j2QsYeHJpdcLEVwUlqr8U_HXpT19bBStNELTycGirWOHH6JI" class="w-full h-full object-cover" alt="History Image 1">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
+                                    <div class="flex justify-end">
+                                        <button class="bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-lg p-1 text-white transition-colors"><span class="material-symbols-outlined text-[16px]">more_horiz</span></button>
+                                    </div>
+                                    <p class="text-[10px] text-white/90 truncate">A futuristic city...</p>
+                                </div>
+                            </div>
+                            <div class="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-800 aspect-square">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhuGajJtnXR1sorOl6O549zjHT_8aMphzK-NSigaX5SlHpZEIF6yXl9BOv1CE7f9XrqiPNSqu5hrl04IK9UeN9D3vkdwSsrNvp-URHL3MgPuNZB9-XjrPkeslL034y8G5r6yeTUK5fMx2IFE8qSVY6XRu2Wy5WYuGR2SwEOokLdWONxbfk_YXmaqRmqVF0WGeqZRQ22geyasbY7UdkiNgeuRjK_wBR14aoEVy6-rANke-WrM07Jq0nB-4S6gVu0Ez3kCBu8uZa_1QQ" class="w-full h-full object-cover" alt="History Image 2">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
+                                    <div class="flex justify-end">
+                                        <button class="bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-lg p-1 text-white transition-colors"><span class="material-symbols-outlined text-[16px]">more_horiz</span></button>
+                                    </div>
+                                    <p class="text-[10px] text-white/90 truncate">Abstract digital art...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-gray-800 dark:text-gray-200 border-b border-gray-100 dark:border-gray-800 pb-2">昨天 (Yesterday)</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <div class="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-800 aspect-square">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBwlXCdeDU2DlLOBQdLdj5MjQMMR9R1yYJBGv05_VL3_UYGDJbtpPKvbCLp-ALK7e-KQKF4gdzJyDSjlNylsL5vigFFu_IDIkkNulDROGaRJsYJwlKw-stLhfp3YaVLxIhwJiLo1gTkB10W1wWvvz_oUlHVphq1B0XX1QnGzUq2OCUTF6Fn2peILXG3gUR6SCfYhqGd7bUdZcG9R-NpG3WAc-29gJ-BAS5PdRIB2TaNrRuhGx7jj0t9LlXXlrVVOwbUvV3NDe-b8E3" class="w-full h-full object-cover" alt="History Image 3">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
+                                    <div class="flex justify-end">
+                                        <button class="bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-lg p-1 text-white transition-colors"><span class="material-symbols-outlined text-[16px]">more_horiz</span></button>
+                                    </div>
+                                    <p class="text-[10px] text-white/90 truncate">Iridescent oil slick...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+            </div>
         </div>
     </main>
 </div>
@@ -1055,6 +1224,54 @@
 </div>
 <!-- JAVASCRIPT LOGIC -->
 <script>
+        function switchVaultTab(tab) {
+            const tabs = ['all-gens', 'history', 'favorites', 'videos'];
+
+            // Default classes
+            const activeClass = 'pb-3 text-sm font-semibold text-primary border-b-2 border-primary'.split(' ');
+            const inactiveClass = 'pb-3 text-sm font-medium text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors'.split(' ');
+
+            tabs.forEach(t => {
+                const tabEl = document.getElementById('tab-' + t);
+                const contentEl = document.getElementById('vault-' + t);
+
+                if (t === tab) {
+                    if(tabEl) {
+                        tabEl.classList.remove(...inactiveClass);
+                        tabEl.classList.add(...activeClass);
+                    }
+                    if(contentEl) {
+                        contentEl.classList.remove('hidden');
+                        if(t === 'history') {
+                            contentEl.classList.add('flex');
+                        } else {
+                            // all-gens uses columns class
+                            contentEl.classList.add('columns-1');
+                        }
+                    }
+                } else {
+                    if(tabEl) {
+                        tabEl.classList.remove(...activeClass);
+                        tabEl.classList.add(...inactiveClass);
+                        tabEl.className = 'pb-3 text-sm font-medium text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors';
+                        if (t === 'all-gens') {
+                            tabEl.id = 'tab-all-gens';
+                        } else if (t === 'history') {
+                            tabEl.id = 'tab-history';
+                        } else if (t === 'favorites') {
+                            tabEl.id = 'tab-favorites';
+                        } else if (t === 'videos') {
+                            tabEl.id = 'tab-videos';
+                        }
+                    }
+                    if(contentEl) {
+                        contentEl.classList.add('hidden');
+                        contentEl.classList.remove('flex', 'columns-1');
+                    }
+                }
+            });
+        }
+
 // Main View Switcher
 function switchView(view) {
     const views = ['gen', 'video', 'plaza', 'api', 'vault', 'results'];
